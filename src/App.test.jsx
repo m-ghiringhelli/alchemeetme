@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react"
+import { render, screen, expect } from "@testing-library/react"
 import { MemoryRouter } from "react-router-dom";
 import App from "./App"
 import Header from "./components/layout/Header";
@@ -15,10 +15,14 @@ const user = {
   }
 
 describe('Header', () => {
-  it('Should contain header image', () => {
+  it('Should display header properly', () => {
     render(
       <Header user={user}/>
     );
-    screen.getByRole('img');
+
+    screen.getByRole('img'); // check for header image
+
+    screen.getByText('Vonta'); // check for user name in header
+
   });
 })
