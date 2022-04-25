@@ -1,3 +1,5 @@
+import { render, screen, expect } from "@testing-library/react"
+import Profile from "../../components/Profile/Profile";
 
 const user = {
   id: 1,
@@ -11,5 +13,11 @@ const user = {
 }
 
 test('Should render the user profile', () => {
-
+  render(<Profile user={user}/>)
+  screen.getByText('Vonta'); // checks for name
+  screen.getByText(/res non verba/i); // checks for motto
+  screen.getByText(/interests/i); // checks for interest header
+  screen.getByAltText('avatar'); // checks for avatar image
+  screen.getByAltText('header'); // checks for header image
+  screen.getByRole('list'); // checks for list of user likes
 })

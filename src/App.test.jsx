@@ -23,6 +23,6 @@ describe('Header', () => {
     screen.getByRole('img'); // check for header image
 
     screen.getByText('Vonta'); // check for user name in header
-
+    
   });
 })
